@@ -1,4 +1,4 @@
-package com.sistr.rshud.setup;
+package com.sistr.tpscamera.setup;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.PlayerEntity;

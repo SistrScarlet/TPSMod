@@ -1,4 +1,4 @@
-package com.sistr.rshud.client;
+package com.sistr.tpscamera.client;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ActiveRenderInfo;
@@ -13,8 +13,9 @@ import javax.annotation.Nullable;
 import java.util.Optional;
 import java.util.function.Predicate;
 
+//Access Transformer不使用版の古いバージョン
 @OnlyIn(Dist.CLIENT)
-public class CustomThirdPersonRender {
+public class OldCustomThirdPersonRender {
     public Entity followTarget;
     public Vec3d cameraPos;
     public Vec3d cameraPrevPos;

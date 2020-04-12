@@ -1,57 +1,19 @@
-package com.sistr.rshud;
+package com.sistr.tpscamera;
 
-import com.sistr.rshud.client.CustomThirdPersonRender2;
-import com.sistr.rshud.client.RSHUDRenderer;
-import com.sistr.rshud.datagen.RSHUDTags;
+import com.sistr.tpscamera.client.CustomThirdPersonRender;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ActiveRenderInfo;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.MovementInput;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.client.event.InputUpdateEvent;
-import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class ForgeEventHandlers {
-    private static final RSHUDRenderer RSHUD_RENDERER = new RSHUDRenderer();
-    private static final CustomThirdPersonRender2 THIRD_PERSON_RENDER = new CustomThirdPersonRender2();
-
-    @SubscribeEvent(priority = EventPriority.LOW)
-    public static void onDisplayRender(RenderGameOverlayEvent.Pre event) {
-        if (event.getType() != RenderGameOverlayEvent.ElementType.CROSSHAIRS) {
-            return;
-        }
-        PlayerEntity player = RSHUDMod.proxy.getClientPlayer();
-        ItemStack stack = player.getItemStackFromSlot(EquipmentSlotType.HEAD);
-        if (!Config.RSHUD_ALWAYS.get()) {
-            if (stack.isEmpty()) {
-                return;
-            }
-            CompoundNBT tag = stack.getOrCreateTag();
-            if (!tag.getBoolean(RSHUDMod.MODID + "CanRender") && !(RSHUDTags.Items.RSHUD_MOUNTED.contains(stack.getItem()))) {
-                return;
-            }
-        }
-        RSHUD_RENDERER.render(player, event.getWindow().getScaledWidth(), event.getWindow().getScaledHeight());
-    }
-
-    @SubscribeEvent
-    public static void onGetToolTip(ItemTooltipEvent event) {
-        ItemStack stack = event.getItemStack();
-        CompoundNBT tag = stack.getOrCreateTag();
-        if (tag.getBoolean(RSHUDMod.MODID + "CanRender")) {
-            event.getToolTip().add(new TranslationTextComponent(RSHUDMod.MODID + ".modified.tooltip"));
-        }
-    }
+    private static final CustomThirdPersonRender THIRD_PERSON_RENDER = new CustomThirdPersonRender();
 
     //移動方向をカメラ基準に
     //ただしダッシュ中は無視
@@ -59,7 +21,7 @@ public class ForgeEventHandlers {
     public static void onInputUpdate(InputUpdateEvent event) {
         Minecraft mc = Minecraft.getInstance();
         if (mc.gameSettings.thirdPersonView == 1 && !mc.gameSettings.keyBindSprint.isKeyDown()) {
-            PlayerEntity player = RSHUDMod.proxy.getClientPlayer();
+            PlayerEntity player = TPSCameraMod.proxy.getClientPlayer();
             if (player.isSprinting()) {
                 return;
             }
