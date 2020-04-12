@@ -2,6 +2,7 @@ package com.sistr.tpscamera;
 
 import com.sistr.tpscamera.client.CustomThirdPersonRender;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.player.ClientPlayerEntity;
 import net.minecraft.client.renderer.ActiveRenderInfo;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.MovementInput;
@@ -22,7 +23,7 @@ public class ForgeEventHandlers {
         Minecraft mc = Minecraft.getInstance();
         if (mc.gameSettings.thirdPersonView == 1 && !mc.gameSettings.keyBindSprint.isKeyDown()) {
             PlayerEntity player = TPSCameraMod.proxy.getClientPlayer();
-            if (player.isSprinting()) {
+            if (player.isSprinting() || player.isShiftKeyDown()) {
                 return;
             }
             MovementInput input = event.getMovementInput();
@@ -34,6 +35,9 @@ public class ForgeEventHandlers {
             float yaw = (float) (MathHelper.atan2(tempStrife, tempForward) * (180 / Math.PI));
             yaw += player.rotationYaw - THIRD_PERSON_RENDER.cameraYaw;
             Vec3d move = Vec3d.fromPitchYaw(0, -yaw);
+            if (((ClientPlayerEntity)player).func_228354_I_()) {
+                move = move.scale(0.3);
+            }
             input.moveForward = (float) move.z;
             input.moveStrafe = (float) move.x;
         }
@@ -58,7 +62,6 @@ public class ForgeEventHandlers {
             THIRD_PERSON_RENDER.reset();
         }
     }
-
 
 
 }

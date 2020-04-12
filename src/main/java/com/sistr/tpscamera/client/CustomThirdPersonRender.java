@@ -55,7 +55,7 @@ public class CustomThirdPersonRender {
         //1tickに一回更新
         //それならtickでやれって？いや、そうすると描画がガタガタするのよ
         //ダッシュ中はブロック走査をスキップして常に正面を向かせる
-        if (shouldPlayerLookChange && (entity.isSprinting() || Minecraft.getInstance().gameSettings.keyBindSprint.isKeyDown())) {
+        if (shouldPlayerLookChange && (entity.isSprinting() || Minecraft.getInstance().gameSettings.keyBindSprint.isKeyDown() || entity.isShiftKeyDown())) {
             entity.rotationYaw = cameraYaw;
             entity.rotationPitch = cameraPitch;
         } else if (shouldPlayerLookChange) {
