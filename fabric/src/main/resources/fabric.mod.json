@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "tpsmod",
+  "version": "${version}",
+  "name": "TPS Mod",
+  "description": "",
+  "authors": [
+    "Sistr"
+  ],
+  "contact": {
+    "homepage": "https://forum.civa.jp/viewtopic.php?f=3&t=119",
+    "sources": "https://github.com/SistrScarlet/TPSMod"
+  },
+  "license": "MIT",
+  "icon": "assets/tpsmod/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.sistr.tpsmod.fabric.TPSModFabric"
+    ]
+  },
+  "depends": {
+    "fabric": "*",
+    "minecraft": ">=1.16.5",
+    "architectury": ">=1.28.48"
+  },
+  "suggests": {
+    "flamingo": "*"
+  }
+}

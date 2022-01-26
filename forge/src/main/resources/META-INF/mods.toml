@@ -1,0 +1,33 @@
+modLoader = "javafml"
+loaderVersion = "[36,)"
+#issueTrackerURL = ""
+license = "MIT"
+
+[[mods]]
+modId = "tpsmod"
+version = "${version}"
+displayName = "TPS Mod"
+authors = "Sistr"
+description = ""
+#logoFile = ""
+
+[[dependencies.tpsmod]]
+modId = "forge"
+mandatory = true
+versionRange = "[36,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.tpsmod]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.16.5,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.tpsmod]]
+modId = "architectury"
+mandatory = true
+versionRange = "[1.28.48,)"
+ordering = "AFTER"
+side = "BOTH"
