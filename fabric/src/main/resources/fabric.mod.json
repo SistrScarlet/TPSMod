@@ -17,8 +17,15 @@
   "entrypoints": {
     "main": [
       "net.sistr.tpsmod.fabric.TPSModFabric"
+    ],
+    "modmenu": [
+      "net.sistr.tpsmod.fabric.ModMenuIntegration"
     ]
   },
+  "mixins": [
+    "tpsmod-common.mixins.json",
+    "tpsmod.mixins.json"
+  ],
   "depends": {
     "fabric": "*",
     "minecraft": ">=1.16.5",

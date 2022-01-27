@@ -1,0 +1,12 @@
+{
+    "option.tpsmod.camera_pos_yaw": "Camera Pos Yaw",
+    "option.tpsmod.camera_pos_yaw_tooltip": "",
+    "option.tpsmod.camera_pos_pitch": "Camera Pos Pitch",
+    "option.tpsmod.camera_pos_pitch_tooltip": "",
+    "option.tpsmod.camera_yaw": "Camera Yaw",
+    "option.tpsmod.camera_yaw_tooltip": "",
+    "option.tpsmod.camera_pitch": "Camera Pitch",
+    "option.tpsmod.camera_pitch_tooltip": "",
+    "option.tpsmod.camera_distance": "Camera Distance",
+    "option.tpsmod.camera_distance_tooltip": ""
+}

@@ -1,12 +1,13 @@
 {
-  "required": true,
-  "package": "net.sistr.tpsmod.mixin",
-  "compatibilityLevel": "JAVA_8",
-  "client": [
-  ],
-  "mixins": [
-  ],
-  "injectors": {
-    "defaultRequire": 1
+    "required": true,
+    "package": "net.sistr.tpsmod.mixin",
+    "compatibilityLevel": "JAVA_8",
+    "client": [
+    ],
+    "mixins": [
+        "CameraMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
   }
 }
