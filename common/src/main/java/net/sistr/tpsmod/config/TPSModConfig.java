@@ -2,7 +2,7 @@ package net.sistr.tpsmod.config;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import me.shedaniel.architectury.platform.Platform;
+import dev.architectury.platform.Platform;
 
 import java.io.BufferedReader;
 import java.io.IOException;

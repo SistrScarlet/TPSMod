@@ -27,9 +27,6 @@ public abstract class CameraMixin {
     private boolean thirdPerson;
 
     @Shadow
-    private boolean inverseView;
-
-    @Shadow
     protected abstract void setRotation(float yaw, float pitch);
 
     @Shadow
@@ -63,7 +60,6 @@ public abstract class CameraMixin {
         this.area = area;
         this.focusedEntity = focusedEntity;
         this.thirdPerson = thirdPerson;
-        this.inverseView = inverseView;
         this.setRotation(focusedEntity.getYaw(tickDelta), focusedEntity.getPitch(tickDelta));
         this.setPos(
                 MathHelper.lerp(tickDelta, focusedEntity.prevX, focusedEntity.getX()),
